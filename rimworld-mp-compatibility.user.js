@@ -37,7 +37,7 @@
     const CACHE_CONFIG = {
         KEY: 'rimworld_mp_compatibility_data',
         TIMESTAMP_KEY: 'rimworld_mp_compatibility_timestamp',
-        DURATION: 4 * 60 * 60 * 1000, // 4 hours in milliseconds
+        DURATION: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
     };
 
     const style = document.createElement('style');

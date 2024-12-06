@@ -7,7 +7,7 @@ A userscript that adds multiplayer compatibility information directly to Steam W
 - Shows multiplayer compatibility status directly on mod pages
 - Automatically detects the correct RimWorld version from mod tags
 - Allows setting a default version for compatibility checking
-- Caches data locally (refreshes every 4 hours)
+- Caches data locally (refreshes every 24 hours)
 - Provides detailed compatibility information including:
     - Compatibility status (Working, Major Issues, Minor Issues, etc.)
     - Additional notes about specific compatibility issues
@@ -60,8 +60,8 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 
 ## Known Issues
 
-- The script caches data for 4 hours to avoid excessive requests to Google Sheets
 - Some mods might show as "Untested" if they're not yet in the compatibility database
+- ℹ️ icon not displaying tooltip about what each status message means (will fix later)
 
 ## Privacy
 
