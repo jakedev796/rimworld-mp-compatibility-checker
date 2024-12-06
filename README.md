@@ -2,6 +2,10 @@
 
 A userscript that adds multiplayer compatibility information directly to Steam Workshop mod pages for RimWorld. The script pulls data from the [RimWorld Multiplayer Compatibility List](https://docs.google.com/spreadsheets/d/1jaDxV8F7bcz4E9zeIRmZGKuaX7d0kvWWq28aKckISaY) and displays it on the mod page.
 
+## Showcase
+
+![Screenshot](Showcase.png)
+
 ## Features
 
 - Shows multiplayer compatibility status directly on mod pages
@@ -20,7 +24,11 @@ A userscript that adds multiplayer compatibility information directly to Steam W
     - [Tampermonkey](https://www.tampermonkey.net/)
     - [Greasemonkey](https://www.greasespot.net/)
 
-2. Install the script by clicking [here](https://github.com/jakedev796/rimworld-mp-compatibility-checker/raw/refs/heads/master/rimworld-mp-compatibility.user.js) 
+2. Click the badge below to install the script directly:
+
+   [![Install Userscript](https://img.shields.io/badge/install-userscript-brightgreen?style=for-the-badge&logo=javascript)](https://github.com/jakedev796/rimworld-mp-compatibility-checker/raw/refs/heads/master/rimworld-mp-compatibility.user.js)
+
+3. Alternatively, you can open the raw script file from GitHub. Your userscript manager should prompt you to install it.
 
 ## Usage
 
