@@ -61,7 +61,6 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 ## Known Issues
 
 - Some mods might show as "Untested" if they're not yet in the compatibility database
-- ℹ️ icon not displaying tooltip about what each status message means (will fix later)
 
 ## Privacy
 

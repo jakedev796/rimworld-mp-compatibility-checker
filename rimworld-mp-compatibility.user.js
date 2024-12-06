@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Rimworld Workshop Mod Compatibility Checker
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Displays mod compatibility information from Google Spreadsheet on Steam Workshop pages
 // @author       jakedev796
 // @match        https://steamcommunity.com/sharedfiles/*
@@ -69,7 +69,7 @@
         }
 
         async initializeCache() {
-            
+
             this.isLoading = true;
 
             try {
@@ -116,7 +116,7 @@
                 for (const sheet of SHEETS) {
                     const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/export?format=csv&gid=${sheet.gid}`;
                     const response = await this.fetchSheet(url);
-                    
+
                     allData[sheet.gid] = this.parseCSV(response);
                 }
 
@@ -128,9 +128,9 @@
                 localStorage.setItem(CACHE_CONFIG.TIMESTAMP_KEY, this.timestamp.toString());
 
                 this.updateStatusIndicator('success');
-                
+
             } catch (error) {
-                
+
                 this.updateStatusIndicator('error');
                 throw error;
             } finally {
@@ -187,7 +187,7 @@
             };
         }
 
-      async fetchSheet(url) {
+        async fetchSheet(url) {
             return new Promise((resolve, reject) => {
                 GM_xmlhttpRequest({
                     method: 'GET',
@@ -266,11 +266,11 @@
     }
 
     function isRimworldModPage() {
-        
+
 
         // Check URL first
         const isWorkshopUrl = window.location.href.includes('/sharedfiles/filedetails/');
-        
+
 
         // Check for RimWorld content
         const hasRimWorldText = document.body.textContent.includes('RimWorld');
@@ -337,8 +337,8 @@
     }
 
     function createErrorPanel(errorMessage) {
-    const panel = document.createElement('div');
-    panel.style.cssText = `
+        const panel = document.createElement('div');
+        panel.style.cssText = `
         background-color: #1b2838;
         border: 1px solid #ff4444;
         border-radius: 3px;
@@ -348,21 +348,21 @@
         font-size: 14px;
     `;
 
-    panel.innerHTML = `
+        panel.innerHTML = `
         <strong>RimWorld Multiplayer Compatibility</strong><br><br>
         ${errorMessage}
     `;
 
-    if (currentInfoPanel) {
-        currentInfoPanel.replaceWith(panel);
-        currentInfoPanel = panel;
-    } else {
-        const descriptionElement = document.querySelector('.workshopItemDescription');
-        if (descriptionElement) {
-            descriptionElement.parentElement.insertBefore(panel, descriptionElement);
+        if (currentInfoPanel) {
+            currentInfoPanel.replaceWith(panel);
             currentInfoPanel = panel;
+        } else {
+            const descriptionElement = document.querySelector('.workshopItemDescription');
+            if (descriptionElement) {
+                descriptionElement.parentElement.insertBefore(panel, descriptionElement);
+                currentInfoPanel = panel;
+            }
         }
-      }
     }
 
     function createInfoPanel(modInfo, sheet = SHEETS[0], selectedGid = SHEETS[0].gid) {
@@ -391,9 +391,9 @@
         titleDiv.textContent = 'RimWorld Multiplayer Compatibility';
         panel.appendChild(titleDiv);
 
-      // Add version indicator
-      const versionIndicator = document.createElement('div');
-      versionIndicator.style.cssText = `
+        // Add version indicator
+        const versionIndicator = document.createElement('div');
+        versionIndicator.style.cssText = `
           color: #acb2b8;
           margin-bottom: 15px;
           padding: 5px 10px;
@@ -402,9 +402,9 @@
           text-align: center;
           font-size: 13px;
       `;
-      versionIndicator.innerHTML = `Showing compatibility for RimWorld <strong>${sheet.version}</strong>`;
-      panel.appendChild(versionIndicator);
-      
+        versionIndicator.innerHTML = `Showing compatibility for RimWorld <strong>${sheet.version}</strong>`;
+        panel.appendChild(versionIndicator);
+
         // Version selector
         const versionSelector = createVersionSelector(modInfo, selectedGid);
         panel.appendChild(versionSelector);
@@ -436,62 +436,20 @@
         const statusColor = statusColors[status] || '#acb2b8';
         const statusDescription = STATUS_DESCRIPTIONS[status] || 'Unknown status';
 
-        // Status container with tooltip
+        // Status container
         const statusContainer = document.createElement('div');
         statusContainer.style.cssText = `
             display: flex;
             align-items: center;
             gap: 5px;
-            position: relative;
             margin-bottom: 10px;
         `;
 
-        statusContainer.innerHTML = `
-            <strong>Status:</strong>
-            <span style="color: ${statusColor}">${STATUS_DESCRIPTIONS[status].split(' - ')[0]}</span>
-            <div class="status-tooltip" style="
-                position: relative;
-                display: inline-block;
-                cursor: help;
-            ">
-                <span style="font-size: 14px;">ℹ️</span>
-                <div class="tooltip-text" style="
-                    visibility: hidden;
-                    position: absolute;
-                    z-index: 1000;
-                    background-color: #1b2838;
-                    color: #acb2b8;
-                    text-align: left;
-                    padding: 8px 12px;
-                    border-radius: 6px;
-                    border: 1px solid #4c6b22;
-                    width: 250px;
-                    bottom: 125%;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    font-size: 12px;
-                    line-height: 1.4;
-                    transition: opacity 0.2s;
-                    opacity: 0;
-                    pointer-events: none;
-                    white-space: normal;
-                ">${statusDescription}</div>
-            </div>
-        `;
+        const statusIndicator = document.createElement('span');
+        statusIndicator.style.color = statusColor;
+        statusIndicator.textContent = `Status: ${statusDescription}`;
 
-        const tooltip = statusContainer.querySelector('.status-tooltip');
-        const tooltipText = tooltip.querySelector('.tooltip-text');
-
-        tooltip.addEventListener('mouseenter', () => {
-            tooltipText.style.visibility = 'visible';
-            tooltipText.style.opacity = '1';
-        });
-
-        tooltip.addEventListener('mouseleave', () => {
-            tooltipText.style.visibility = 'hidden';
-            tooltipText.style.opacity = '0';
-        });
-
+        statusContainer.appendChild(statusIndicator);
         contentDiv.appendChild(statusContainer);
         contentDiv.innerHTML += `<strong>Notes:</strong> ${modInfo.notes || 'No notes available'}<br>`;
         panel.appendChild(contentDiv);
@@ -649,7 +607,7 @@
     }
 
     async function initModPage() {
-        
+
         if (!isRimworldModPage()) {
             return;
         }
@@ -658,7 +616,7 @@
         if (!modId) {
             return;
         }
-        
+
         let attempts = 0;
         const maxAttempts = 50; // 5 seconds max wait time
 
@@ -686,10 +644,10 @@
                 }
                 currentInfoPanel = panel;
             } else {
-                
+
             }
         } catch (error) {
-            
+
             createErrorPanel('Failed to load compatibility information. Please try refreshing the page.');
         }
     }
