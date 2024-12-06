@@ -20,7 +20,7 @@ A userscript that adds multiplayer compatibility information directly to Steam W
     - [Tampermonkey](https://www.tampermonkey.net/)
     - [Greasemonkey](https://www.greasespot.net/)
 
-2. Install the script by clicking [here](TBA) 
+2. Install the script by clicking [here](https://github.com/jakedev796/rimworld-mp-compatibility-checker/raw/refs/heads/master/rimworld-mp-compatibility.user.js) 
 
 ## Usage
 
