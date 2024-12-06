@@ -55,8 +55,8 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 
 ## Acknowledgments
 
-- Thanks to the RimWorld multiplayer community for maintaining the compatibility spreadsheet
-- Thanks to the creators and maintainers of the RimWorld multiplayer mod
+- Thanks to the RimWorld multiplayer community for maintaining the [compatibility spreadsheet](https://docs.google.com/spreadsheets/d/1jaDxV8F7bcz4E9zeIRmZGKuaX7d0kvWWq28aKckISaY)
+- Thanks to the creators and maintainers of the [RimWorld multiplayer mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2606448745)
 
 ## Known Issues
 
