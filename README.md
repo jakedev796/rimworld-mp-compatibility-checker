@@ -1,21 +1,62 @@
 # RimWorld Multiplayer Compatibility Checker
 
-A userscript that adds multiplayer compatibility information directly to Steam Workshop mod pages for RimWorld. The script pulls data from the [RimWorld Multiplayer Compatibility List](https://docs.google.com/spreadsheets/d/1jaDxV8F7bcz4E9zeIRmZGKuaX7d0kvWWq28aKckISaY) and displays it on the mod page.
+A userscript that adds multiplayer compatibility information directly to Steam Workshop mod pages for RimWorld. The script integrates compatibility data from the [RimWorld Multiplayer Compatibility List](https://docs.google.com/spreadsheets/d/1jaDxV8F7bcz4E9zeIRmZGKuaX7d0kvWWq28aKckISaY) across all Steam Workshop pages for RimWorld.
 
 ## Showcase
 
-![Screenshot](Showcase.png)
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="showcase/showcaseModPage.png" width="400" alt="Mod Page"><br>
+        <sub><b>Individual Mod Page</b></sub>
+      </td>
+      <td align="center">
+        <img src="showcase/showcaseCollectionsAndSettings.png" width="400" alt="Collections"><br>
+        <sub><b>Collections Summary</b></sub>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="showcase/showcaseTooltipsAndIcons.png" width="400" alt="Workshop"><br>
+        <sub><b>Workshop Browsing</b></sub>
+      </td>
+      <td align="center">
+        <img src="showcase/showcaseBrowseSettings.png" width="400" alt="Version Control"><br>
+        <sub><b>Version Control</b></sub>
+      </td>
+    </tr>
+  </table>
+</div>
 
 ## Features
 
-- Shows multiplayer compatibility status directly on mod pages
-- Automatically detects the correct RimWorld version from mod tags
-- Allows setting a default version for compatibility checking
-- Caches data locally (refreshes every 24 hours)
-- Provides detailed compatibility information including:
-    - Compatibility status (Working, Major Issues, Minor Issues, etc.)
-    - Additional notes about specific compatibility issues
-    - Last time compatibility data was updated
+### Comprehensive Integration
+- Displays compatibility status across all Steam Workshop pages:
+    - Individual mod pages
+    - Collection pages
+    - Workshop browsing pages
+- Quick-view compatibility icons on mod thumbnails
+- Detailed tooltips showing compatibility information
+- Collection summaries showing compatibility breakdown
+
+### Version Management
+- Global version selector for checking different RimWorld versions
+- Persistent default version setting
+- Version-specific compatibility checking
+- Easy version switching with immediate updates
+
+### Detailed Information
+- Compatibility status levels with clear indicators
+- Detailed notes about specific compatibility issues
+- Links to the compatibility spreadsheet for each mod
+- Last update timestamp for compatibility data
+
+### Technical Features
+- Local data caching (24-hour refresh cycle)
+- Automatic compatibility updates
+- Responsive design that works across all workshop pages
+- Clean integration with Steam's interface
 
 ## Installation
 
@@ -32,15 +73,23 @@ A userscript that adds multiplayer compatibility information directly to Steam W
 
 ## Usage
 
-After installation, the script will automatically:
-1. Add a compatibility status indicator to RimWorld mod pages on the Steam Workshop
-2. Show detailed compatibility information above the mod description
-3. Allow you to check compatibility for different RimWorld versions
+### Version Control
+- Use the version selector bar at the top of workshop pages
+- Set a default version with the 📌 button
+- Clear default version with the ❌ button
+- Version selection persists across workshop pages
 
-### Version Selection
-- Use the dropdown menu to check compatibility for different RimWorld versions
-- Set a default version by clicking the 📌 button
-- Clear the default version by clicking the ❌ button
+### Collection Features
+- View compatibility summary for all mods in a collection
+- Expandable categories showing mod lists by compatibility
+- Quick access to individual mod pages
+- Automatic updates when changing versions
+
+### Workshop Browsing
+- Instant compatibility status via icons
+- Hover tooltips with detailed information
+- Version selector available while browsing
+- Works with infinite scroll
 
 ### Compatibility Status Levels
 - ✅ Fully Compatible - All features work correctly in multiplayer
@@ -66,10 +115,6 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 - Thanks to the RimWorld multiplayer community for maintaining the [compatibility spreadsheet](https://docs.google.com/spreadsheets/d/1jaDxV8F7bcz4E9zeIRmZGKuaX7d0kvWWq28aKckISaY)
 - Thanks to the creators and maintainers of the [RimWorld multiplayer mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2606448745)
 
-## Known Issues
-
-- Some mods might show as "Untested" if they're not yet in the compatibility database
-
 ## Privacy
 
 This script:
@@ -77,3 +122,8 @@ This script:
 - Only accesses the public compatibility spreadsheet
 - Stores cached data locally in your browser
 - Does not collect or transmit any personal information
+
+## Known Issues
+
+- Some mods might show as "Untested" if they're not yet in the compatibility database
+- Version selection may take a moment to update on collection pages with many mods
